@@ -12,36 +12,11 @@ If o ===
 Let Turn = ''
 Change turn inside function
 
-If(turn===x) {
-xTurn ()
-} Else if (turn === o) {
-oTurn()
 
-}
 
-Function xTurn {
-    Document.body.style.backgroundColor = black
-    Document.body.style.color = white
 
-click tile inner html = x
-click disable button
 
-turn count++
 
-    Turn = o
-}
-
-Function oTurn {
-    Document.body.style.backgroundColor = white
-    Document.body.style.backgroundColor = black
-
-    click tile inner html = o
-    click disable button
-
-    turn count++
-
-    Turn = x
-}
 
 ![wireframe](./images/tic-tac-toe.png)
 
@@ -92,6 +67,8 @@ Function oTurn {
 
 ### Basic Layout
 
+<h1>`${turn}'s turn`</> <!-- output example = "X's turn"-->
+
 <div row>
     <div col>
     <div col>
@@ -136,12 +113,44 @@ resetBtn('click'){
     reset()
 }
 
-
-
-
-
-<!-- <style>
-    img {
-
+turn(){
+    If(turn===x) {
+    xTurn ()
+    } Else if (turn === o) {
+    oTurn()
     }
-    </style> -->
+}
+
+Function xTurn {
+    Document.body.style.backgroundColor = black
+    Document.body.style.color = white
+
+click tile inner html = x
+click disable button
+
+turn count++
+
+    Turn = o
+}
+
+Function oTurn {
+    Document.body.style.backgroundColor = white
+    Document.body.style.backgroundColor = black
+
+    click tile inner html = o
+    click disable button
+
+    turn count++
+
+    Turn = x
+}
+
+
+
+
+
+<style>
+    img {
+        height: 200px;
+    }
+    </style>
