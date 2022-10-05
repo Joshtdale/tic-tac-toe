@@ -20,21 +20,17 @@ oTurn()
 }
 
 Function xTurn {
+    Document.body.style.backgroundColor = black
+    Document.body.style.color = white
 
-Document.body.style.backgroundColor = black
-
-Document.body.style.color = white
-
-Turn = o
+    Turn = o
 }
 
 Function oTurn {
+    Document.body.style.backgroundColor = white
+    Document.body.style.backgroundColor = black
 
-Document.body.style.backgroundColor = white
-
-Document.body.style.backgroundColor = black
-
-Turn = x
+    Turn = x
 }
 
 ![wireframe](./images/tic-tac-toe.png)
@@ -64,6 +60,10 @@ Turn = x
     <br> [0,1,2], [3,4,5], [0,3,6]
 - Board state: ['','0','','','','','','','x'] length 9
     - update state with xo values after turn
+- gameActive:
+- Winner: header text = `${winner} wins`
+    - background = red
+- Draw:
 
 ### Event listener
 - click, element.appendChild(img)
