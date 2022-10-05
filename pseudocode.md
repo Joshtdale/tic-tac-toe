@@ -26,6 +26,8 @@ Function xTurn {
 click tile inner html = x
 click disable button
 
+turn count++
+
     Turn = o
 }
 
@@ -35,6 +37,8 @@ Function oTurn {
 
     click tile inner html = o
     click disable button
+
+    turn count++
 
     Turn = x
 }
@@ -87,6 +91,21 @@ Function oTurn {
 
 
 ### Basic Layout
+
+<div row>
+    <div col>
+    <div col>
+    <div col>
+
+<div row>
+    <div col>
+    <div col>
+    <div col>
+
+<div row>
+    <div col>
+    <div col>
+    <div col>
 
 ---
 if (turnCount > 5){
