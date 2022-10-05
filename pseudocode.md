@@ -23,12 +23,18 @@ Function xTurn {
     Document.body.style.backgroundColor = black
     Document.body.style.color = white
 
+click tile inner html = x
+click disable button
+
     Turn = o
 }
 
 Function oTurn {
     Document.body.style.backgroundColor = white
     Document.body.style.backgroundColor = black
+
+    click tile inner html = o
+    click disable button
 
     Turn = x
 }
@@ -63,10 +69,16 @@ Function oTurn {
 - gameActive:
 - Winner: header text = `${winner} wins`
     - background = red
+    - dont need to check win conditions till move 5
 - Draw:
+- marker x or o
+    - updated in player functions to be x or o?
+- turn count: 
 
 ### Event listener
 - click, element.appendChild(img)
+
+<button = disabled><img></button>
 
 ### Questions
 - How do we track moves?
@@ -77,10 +89,33 @@ Function oTurn {
 ### Basic Layout
 
 ---
-checkWin(){
-    checks after every turn if win conditionals are met
+if (turnCount > 5){
+    checkWin(){
+        checks after every turn if win conditionals are met
+    }
 }
 
+CreateElements(){
+    dynamically create elements
+}
+
+mainElements(){
+    creates elements on load
+}
+
+
+init(){
+    create button(render elements)
+    or create elements on load
+}
+
+reset(){
+    resets game
+}
+
+resetBtn('click'){
+    reset()
+}
 
 
 
