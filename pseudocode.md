@@ -84,10 +84,14 @@ placeHolder.setAttribute('url', 'x')
     <div col>
     <div col>
 
+    <btn>Reset</>
+
 ---
 state = {
     turn: x,
-    board: ['','','','','','','','',]
+    board: ['','','','','','','','',],
+    Winner: '',
+    turnCount: 0
 
 }
 
