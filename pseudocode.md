@@ -56,6 +56,7 @@ placeHolder.setAttribute('url', 'x')
 
 ### Event listener
 - click, element.appendChild(img)
+- if clicked - disable
 
 <button = disabled><img></button>
 
