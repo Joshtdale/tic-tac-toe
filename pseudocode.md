@@ -84,7 +84,20 @@ placeHolder.setAttribute('url', 'x')
     <div col>
     <div col>
 
+    <btn>Reset</>
+
 ---
+state = {
+    turn: x,
+    board: ['','','','','','','','',],
+    Winner: '',
+    turnCount: 0
+
+}
+
+text1 = x
+text2 = o
+
 if (turnCount > 5){
     checkWin(){
         checks after every turn if win conditionals are met
@@ -125,11 +138,11 @@ Function xTurn {
     Document.body.style.backgroundColor = black
     Document.body.style.color = white
 
-click tile inner html = x
-click disable button
-
-turn count++
-
+    click tile inner html = x
+    click disable button
+    div.innerText = text1
+    turn count++    
+    tile = disable
     Turn = o
 }
 
@@ -139,9 +152,9 @@ Function oTurn {
 
     click tile inner html = o
     click disable button
-
+    div.innerText = text2
     turn count++
-
+    tile = disable
     Turn = x
 }
 
