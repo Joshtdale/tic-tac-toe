@@ -62,7 +62,11 @@ Turn = x
     <br> a1 b2 c3 all x
     - Array win conditions<br>Or array indexes combinations of index values
     <br> [0,1,2], [3,4,5], [0,3,6]
-- Board state: [] length 9
+- Board state: ['','0','','','','','','','x'] length 9
+    - update state with xo values after turn
+
+### Event listener
+- click, element.appendChild(img)
 
 ### Questions
 - How do we track moves?
@@ -71,6 +75,11 @@ Turn = x
 
 
 ### Basic Layout
+
+---
+checkWin(){
+    checks after every turn if win conditionals are met
+}
 
 
 
