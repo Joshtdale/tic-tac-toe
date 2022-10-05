@@ -56,15 +56,44 @@ function createLayout(parentEl, tag, text, className, idName,) {
 function renderPage(){
     createLayout(mainDiv, 'div', '', 'row', 'topRow')
     createLayout(topRow, 'div', 'x', 'col', 'col1')
-    createLayout(topRow, 'div', 'x', 'col', 'col3')
+    createLayout(topRow, 'div', 'x', 'col', 'col2')
     createLayout(topRow, 'div', 'x', 'col', 'col3')
     createLayout(mainDiv, 'div', '', 'row', 'middleRow')
-    createLayout(middleRow, 'div', 'x', 'col', 'col1')
-    createLayout(middleRow, 'div', 'x', 'col', 'col2')
-    createLayout(middleRow, 'div', 'x', 'col', 'col3')
+    createLayout(middleRow, 'div', 'x', 'col', 'col4')
+    createLayout(middleRow, 'div', 'x', 'col', 'col5')
+    createLayout(middleRow, 'div', 'x', 'col', 'col6')
     createLayout(mainDiv, 'div', '', 'row', 'bottomRow')
-    createLayout(bottomRow, 'div', 'x', 'col', 'col1')
-    createLayout(bottomRow, 'div', 'x', 'col', 'col2')
-    createLayout(bottomRow, 'div', 'x', 'col', 'col3')
+    createLayout(bottomRow, 'div', 'x', 'col', 'col7')
+    createLayout(bottomRow, 'div', 'x', 'col', 'col8')
+    createLayout(bottomRow, 'div', 'x', 'col', 'col9')
+
 }
 renderPage()
+
+col1.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col2.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col3.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col4.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col5.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col6.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col7.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col8.addEventListener('click', () =>{
+    console.log('clicked')
+})
+col9.addEventListener('click', () =>{
+    console.log('clicked')
+})
