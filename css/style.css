@@ -2,10 +2,19 @@
     height: 100px;
     /* width: 50px; */
     border: 1px solid black;
-    /* background-image: url(./images/skull.jpg); */
+    border-radius: 0;
     font-size: 60px;
 }
+/* body {
+    background-image: url('./images/skull.jpg');
+    background-position: cover no-repeat;
+} */
 
 /* .btn:hover {
+    background-image: url(./images/skull.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.5sec;
+    background-size: 50px;
 
 } */
