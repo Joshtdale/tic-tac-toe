@@ -101,12 +101,20 @@ renderPage()
     //     console.log(board[line[0]])
     // }
 
+    function checkWinner (){
+        let gameWinner = winConditionals.some((tile) => {return
+        (
+            board[tile[0]]
+            && board[tile[0]] == board[tile[1]]
+            && board[tile[1]] == board[tile[2]]
+        )}
+        )};
+    
+checkWinner()
+
     function gamePlay() {
-        // let target = e.target;
         let stuff = this.id
         console.log(stuff)
-        // let id = this.id
-        // console.log(id)
         let col = document.getElementById(`${stuff}`)
     col.style.backgroundImage =`url(${initState.image})`
     col.style.backgroundPosition = 'center'
