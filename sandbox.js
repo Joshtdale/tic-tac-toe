@@ -28,8 +28,8 @@ let winConditionals = [
 
 function xTurn() {
     //  = initState.x
-    initState.image = './images/skull.png'
-    initState.imageSize = '50px'
+    initState.image = './images/crossbones.png'
+    initState.imageSize = '100px'
     initState.turn = 'o';
     initState.turnCount++
     // if (initState.turnCount > 5){
@@ -40,8 +40,9 @@ function xTurn() {
 
 function oTurn() {
     //  = initState.o
-    initState.image = './images/crossbones.png'
-    initState.imageSize = '100px'
+    
+    initState.image = './images/skull.png'
+    initState.imageSize = '60px'
     initState.turn = 'x'
     initState.turnCount++
     // if (initState.turnCount > 5){
@@ -84,15 +85,17 @@ function createLayout(parentEl, tag, text, className, idName, number) {
 };
 
 function renderPage(){
-    createLayout(mainDiv, 'div', '', 'row', 'topRow')
+    createLayout(mainDiv,'div','','','boardContainer')
+
+    createLayout(boardContainer, 'div', '', 'row', 'topRow')
     createLayout(topRow, 'button', '', 'col btn', 'col1', '0')
     createLayout(topRow, 'button', '', 'col btn', 'col2', '1')
     createLayout(topRow, 'button', '', 'col btn', 'col3', '2')
-    createLayout(mainDiv, 'div', '', 'row', 'middleRow')
+    createLayout(boardContainer, 'div', '', 'row', 'middleRow')
     createLayout(middleRow, 'button', '', 'col btn', 'col4', '3')
     createLayout(middleRow, 'button', '', 'col btn', 'col5', '4')
     createLayout(middleRow, 'button', '', 'col btn', 'col6', '5')
-    createLayout(mainDiv, 'div', '', 'row', 'bottomRow')
+    createLayout(boardContainer, 'div', '', 'row', 'bottomRow')
     createLayout(bottomRow, 'button', '', 'col btn', 'col7', '6')
     createLayout(bottomRow, 'button', '', 'col btn', 'col8', '7')
     createLayout(bottomRow, 'button', '', 'col btn', 'col9', '8')
@@ -116,13 +119,36 @@ renderPage()
             && board[tile[1]] == board[tile[2]]
         )
     })
-    console.log(board)
+    // console.log(board)
     if (gameWinner){
-        alert(`${initState.turn}`)
+        setTimeout(() =>{
+            alert(`${initState.turn} wins`)
+            reset()
+            // renderPage()
+        }, '300') 
+        
+    } else if (!gameWinner && initState.turnCount === 9){
+        setTimeout(() =>{
+            alert('You fools tied')
+            reset()
+            // renderPage()
+        }, '300') 
     }
 };
     
-// checkWinner()
+function reset() {
+    if (boardContainer){
+        mainDiv.removeChild(boardContainer)
+    }
+    initState.turn = 'x',
+    initState.winner = '',
+    initState.turnCount = 0,
+    initState.image = './images/crossbones.png',
+    initState.imageSize = '100px',
+    initState.x = 'x',
+    initState.o = '0'
+    renderPage()
+}
 
     function gamePlay() {
         let stuff = this.id
@@ -131,7 +157,6 @@ renderPage()
         // console.log(number)
         let col = document.getElementById(`${stuff}`)
     col.style.backgroundImage =`url(${initState.image})`
-    // col.style.backgroundImage = 'url(./images/crossbones.png)'
     col.style.backgroundPosition = 'center'
     col.style.backgroundSize = `${initState.imageSize}`
     col.style.backgroundRepeat = 'no-repeat'
@@ -164,4 +189,4 @@ renderPage()
 
 
 
-console.log(board)
+// console.log(board)
