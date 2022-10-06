@@ -1,5 +1,5 @@
 let initState = {
-    turn: 'x',
+    turn: 'o',
     winner: '',
     turnCount: 0,
     image: './images/skull.png',
@@ -9,7 +9,8 @@ let initState = {
 };
 // console.log(initState.turn)
 let board = [ , , , , , , , , ];
-let winConditionals = []
+let winConditionals = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
+// console.log(winConditionals)
 
 function xTurn() {
     //  = initState.x
@@ -73,6 +74,10 @@ renderPage()
 col1.addEventListener('click', () =>{
     console.log('clicked')
     col1.innerText = `${initState.turn}`
+    col1.style.backgroundImage =`url(${initState.image})`
+    col1.style.backgroundPosition = 'center'
+    col1.style.backgroundSize = '50px'
+    col1.style.backgroundRepeat = 'no-repeat'
     // col1.style.backgroundImage = `url(${initState.image})`
     // col1.style.backgroundImage = 'url(./images/skull.png)'
     board[0] = `${initState.turn}`
@@ -163,4 +168,5 @@ col9.addEventListener('click', () =>{
         }, "1000")
 })
 
-console.log(board)
+// createLayout(mainDiv, 'img', '', '', 'img')
+// img.setAttribute('src', './images/skull.png')
