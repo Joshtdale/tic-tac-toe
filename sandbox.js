@@ -9,8 +9,21 @@ let initState = {
     
 };
 // console.log(initState.turn)
-let board = [ , , , , , , , , ];
-let winConditionals = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,5,7],[2,5,8],[0,4,8],[2,4,6]]
+let board = [
+    '','','',
+    '','','',
+    '','','',
+];
+let winConditionals = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,5,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6]
+]
 // console.log(winConditionals)
 
 function xTurn() {
@@ -63,7 +76,7 @@ function createLayout(parentEl, tag, text, className, idName,) {
         element.setAttribute('id', idName)
     }
     parentEl.appendChild(element)
-}
+};
 
 function renderPage(){
     createLayout(mainDiv, 'div', '', 'row', 'topRow')
@@ -79,22 +92,30 @@ function renderPage(){
     createLayout(bottomRow, 'button', '', 'col btn', 'col8')
     createLayout(bottomRow, 'button', '', 'col btn', 'col9')
 
-}
+};
 renderPage()
 
-col1.addEventListener('click', () =>{
-    console.log('clicked')
-    // col1.innerText = `${initState.turn}`
-    col1.style.backgroundImage =`url(${initState.image})`
-    col1.style.backgroundPosition = 'center'
-    col1.style.backgroundSize = `${initState.imageSize}`
-    col1.style.backgroundRepeat = 'no-repeat'
+function gamePlay(e) {
+    // let target = e.target;
+    // let id = target.id
+    let id = this.id
+    console.log(id)
+    id.style.backgroundImage =`url(${initState.image})`
+    id.style.backgroundPosition = 'center'
+    id.style.backgroundSize = `${initState.imageSize}`
+    id.style.backgroundRepeat = 'no-repeat'
     board[0] = `${initState.turn}`
     checkTurn()
-    setTimeout(() => {
-        col1.setAttribute('disabled', '')
-    }, "1000")
+    // setTimeout(() => {
+    //     id.setAttribute('disabled', '')
+    //     }, "1000")
 
+}
+
+col1.addEventListener('click', (e) =>{
+    console.log('clicked')
+    // col1.innerText = `${initState.turn}`
+    gamePlay()
 })
 
 col2.addEventListener('click', () =>{
