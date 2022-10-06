@@ -73,7 +73,7 @@ renderPage()
 
 col1.addEventListener('click', () =>{
     console.log('clicked')
-    col1.innerText = `${initState.turn}`
+    // col1.innerText = `${initState.turn}`
     col1.style.backgroundImage =`url(${initState.image})`
     col1.style.backgroundPosition = 'center'
     col1.style.backgroundSize = '50px'
