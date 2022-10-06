@@ -1,5 +1,5 @@
 let initState = {
-    turn: 'o',
+    turn: 'x',
     winner: '',
     turnCount: 0,
     image: './images/crossbones.png',
@@ -28,24 +28,27 @@ let winConditionals = [
 
 function xTurn() {
     //  = initState.x
+    initState.image = './images/crossbones.png'
+    initState.imageSize = '100px'
     initState.turn = 'o';
-    initState.image = './images/skull.png'
-    initState.imageSize = '50px'
     initState.turnCount++
-    if (initState.turnCount > 5){
-        console.log('possible winner')
-    }
+    // if (initState.turnCount > 5){
+    //     console.log('possible winner')
+    //     checkWinner()
+    // }
 };
 
 function oTurn() {
     //  = initState.o
+    
+    initState.image = './images/skull.png'
+    initState.imageSize = '60px'
     initState.turn = 'x'
-    initState.image = './images/crossbones.png'
-    initState.imageSize = '100px'
     initState.turnCount++
-    if (initState.turnCount > 5){
-        console.log('possible winner')
-    }
+    // if (initState.turnCount > 5){
+    //     console.log('possible winner')
+    //     // checkWinner()
+    // }
 
 }
 
@@ -66,7 +69,7 @@ checkTurn()
 const mainDiv = document.getElementById('mainDiv')
 mainDiv.setAttribute('class', 'container text-center')
 
-function createLayout(parentEl, tag, text, className, idName,) {
+function createLayout(parentEl, tag, text, className, idName, number) {
     let element = document.createElement(tag)
     element.innerText = text
     if (className) {
@@ -75,50 +78,94 @@ function createLayout(parentEl, tag, text, className, idName,) {
     if (idName) {
         element.setAttribute('id', idName)
     }
+    if (number){
+        element.setAttribute('data-number', number)
+    }
     parentEl.appendChild(element)
 };
 
 function renderPage(){
-    createLayout(mainDiv, 'div', '', 'row', 'topRow')
-    createLayout(topRow, 'button', '', 'col btn', 'col1')
-    createLayout(topRow, 'button', '', 'col btn', 'col2')
-    createLayout(topRow, 'button', '', 'col btn', 'col3')
-    createLayout(mainDiv, 'div', '', 'row', 'middleRow')
-    createLayout(middleRow, 'button', '', 'col btn', 'col4')
-    createLayout(middleRow, 'button', '', 'col btn', 'col5')
-    createLayout(middleRow, 'button', '', 'col btn', 'col6')
-    createLayout(mainDiv, 'div', '', 'row', 'bottomRow')
-    createLayout(bottomRow, 'button', '', 'col btn', 'col7')
-    createLayout(bottomRow, 'button', '', 'col btn', 'col8')
-    createLayout(bottomRow, 'button', '', 'col btn', 'col9')
+    createLayout(mainDiv,'div','','','boardContainer')
 
+    createLayout(boardContainer, 'div', '', 'row', 'topRow')
+    createLayout(topRow, 'button', '', 'col btn', 'col1', '0')
+    createLayout(topRow, 'button', '', 'col btn', 'col2', '1')
+    createLayout(topRow, 'button', '', 'col btn', 'col3', '2')
+    createLayout(boardContainer, 'div', '', 'row', 'middleRow')
+    createLayout(middleRow, 'button', '', 'col btn', 'col4', '3')
+    createLayout(middleRow, 'button', '', 'col btn', 'col5', '4')
+    createLayout(middleRow, 'button', '', 'col btn', 'col6', '5')
+    createLayout(boardContainer, 'div', '', 'row', 'bottomRow')
+    createLayout(bottomRow, 'button', '', 'col btn', 'col7', '6')
+    createLayout(bottomRow, 'button', '', 'col btn', 'col8', '7')
+    createLayout(bottomRow, 'button', '', 'col btn', 'col9', '8')
+    
+    // for (let i = 0; i < 10; i++) {
+    //     // console.log(i)
+    //     let col = `col${i}`
+    //     col.addEventListener('click', gamePlay)
+    
+    // }
 };
 renderPage()
 
 
-// for (let i = 0; i < winConditionals.length; i++) {
-    //     const line = winConditionals[i];
-    //     console.log(board[line[0]])
-    // }
+
+    function checkWinner (){
+        let gameWinner = winConditionals.some((tile) => {
+            return (
+            board[tile[0]]
+            && board[tile[0]] == board[tile[1]]
+            && board[tile[1]] == board[tile[2]]
+        )
+    })
+    if (gameWinner){
+        setTimeout(() =>{
+            alert(`${initState.turn} wins`)
+            reset()
+        }, '300') 
+        
+    } else if (!gameWinner && initState.turnCount === 9){
+        setTimeout(() =>{
+            alert('You fools tied')
+            reset()
+        }, '300') 
+    }
+};
+    
+function reset() {
+    if (boardContainer){
+        mainDiv.removeChild(boardContainer)
+    }
+    initState.turn = 'x',
+    initState.winner = '',
+    initState.turnCount = 0,
+    initState.image = './images/crossbones.png',
+    initState.imageSize = '100px',
+    initState.x = 'x',
+    initState.o = '0'
+    renderPage()
+}
 
     function gamePlay() {
-        // let target = e.target;
         let stuff = this.id
-        console.log(stuff)
-        // let id = this.id
-        // console.log(id)
+        let number = this.getAttribute('data-number')
+        // console.log(stuff)
+        // console.log(number)
         let col = document.getElementById(`${stuff}`)
     col.style.backgroundImage =`url(${initState.image})`
     col.style.backgroundPosition = 'center'
     col.style.backgroundSize = `${initState.imageSize}`
     col.style.backgroundRepeat = 'no-repeat'
-        board[0] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            document.getElementById(`${stuff}`).setAttribute('disabled', '')
-            }, "1000")
+    board[`${number}`] = `${initState.turn}`
+    checkTurn()
+    checkWinner()
+    setTimeout(() => {
+        document.getElementById(`${stuff}`).setAttribute('disabled', '')
+        }, "1000")
+            
     }
-    
+
     col1.addEventListener('click', gamePlay)
     
     col2.addEventListener('click', gamePlay)
@@ -137,7 +184,3 @@ renderPage()
 
     col9.addEventListener('click', gamePlay)
 
-    col1.addEventListener('click', gamePlay)
-
-
-console.log(board)
