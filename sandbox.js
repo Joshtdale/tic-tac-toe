@@ -2,6 +2,7 @@ let initState = {
     turn: 'x',
     winner: '',
     turnCount: 0,
+    image: './images/skull.png',
     x: 'x',
     o: '0'
     
@@ -36,6 +37,7 @@ function checkTurn() {
     };
 };
 checkTurn()
+
 const mainDiv = document.getElementById('mainDiv')
 mainDiv.setAttribute('class', 'container text-center')
 
@@ -71,69 +73,94 @@ renderPage()
 col1.addEventListener('click', () =>{
     console.log('clicked')
     col1.innerText = `${initState.turn}`
+    // col1.style.backgroundImage = `url(${initState.image})`
+    // col1.style.backgroundImage = 'url(./images/skull.png)'
+    board[0] = `${initState.turn}`
     checkTurn()
-    col1.setAttribute('disabled', '')
+    setTimeout(() => {
+        col1.setAttribute('disabled', '')
+    }, "1000")
+
 })
 
 col2.addEventListener('click', () =>{
     console.log('clicked')
     col2.innerText = `${initState.turn}`
+    board[1] = `${initState.turn}`
+    console.log(board[1])
         checkTurn()
-        col2.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col2.setAttribute('disabled', '')
+        }, "1000")
 })
 
 col3.addEventListener('click', () =>{
     console.log('clicked')
     col3.innerText = `${initState.turn}`
+    board[2] = `${initState.turn}`
         checkTurn()
-        col3.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col3.setAttribute('disabled', '')
+        }, "1000")
 })
 
 col4.addEventListener('click', () =>{
     console.log('clicked')
     col4.innerText = `${initState.turn}`
+    board[3] = `${initState.turn}`
         checkTurn()
-        col4.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col4.setAttribute('disabled', '')
+        }, "1000")
 })
 
 col5.addEventListener('click', () =>{
     console.log('clicked')
     col5.innerText = `${initState.turn}`
+    board[4] = `${initState.turn}`
         checkTurn()
-        col5.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col5.setAttribute('disabled', '')
+        }, "1000")
 })
 
 col6.addEventListener('click', () =>{
     console.log('clicked')
     col6.innerText = `${initState.turn}`
+    board[5] = `${initState.turn}`
         checkTurn()
-        col6.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col6.setAttribute('disabled', '')
+        }, "1000")
 })
 col7.addEventListener('click', () =>{
     console.log('clicked')
     col7.innerText = `${initState.turn}`
+    board[6] = `${initState.turn}`
         checkTurn()
-        col7.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col7.setAttribute('disabled', '')
+        }, "1000")
 })
 
 col8.addEventListener('click', () =>{
     console.log('clicked')
     col8.innerText = `${initState.turn}`
+    board[7] = `${initState.turn}`
         checkTurn()
-        col8.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col8.setAttribute('disabled', '')
+        }, "1000")
 })
 
 col9.addEventListener('click', () =>{
     console.log('clicked')
     col9.innerText = `${initState.turn}`
+    board[8] = `${initState.turn}`
         checkTurn()
-        col9.setAttribute('disabled', '')
-
+        setTimeout(() => {
+            col9.setAttribute('disabled', '')
+        }, "1000")
 })
+
+console.log(board)
