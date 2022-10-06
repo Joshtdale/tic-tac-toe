@@ -96,15 +96,17 @@ function renderPage(){
     createLayout(bottomRow, 'button', '', 'col btn', 'col7', '6')
     createLayout(bottomRow, 'button', '', 'col btn', 'col8', '7')
     createLayout(bottomRow, 'button', '', 'col btn', 'col9', '8')
-
+    
+    // for (let i = 0; i < 10; i++) {
+    //     // console.log(i)
+    //     let col = `col${i}`
+    //     col.addEventListener('click', gamePlay)
+    
+    // }
 };
 renderPage()
 
 
-// for (let i = 0; i < winConditionals.length; i++) {
-    //     const line = winConditionals[i];
-    //     console.log(board[line[0]])
-    // }
 
     function checkWinner (){
         let gameWinner = winConditionals.some((tile) => {
@@ -129,6 +131,7 @@ renderPage()
         // console.log(number)
         let col = document.getElementById(`${stuff}`)
     col.style.backgroundImage =`url(${initState.image})`
+    // col.style.backgroundImage = 'url(./images/crossbones.png)'
     col.style.backgroundPosition = 'center'
     col.style.backgroundSize = `${initState.imageSize}`
     col.style.backgroundRepeat = 'no-repeat'
@@ -140,7 +143,7 @@ renderPage()
         }, "1000")
             
     }
-    
+
     col1.addEventListener('click', gamePlay)
     
     col2.addEventListener('click', gamePlay)
@@ -159,7 +162,6 @@ renderPage()
 
     col9.addEventListener('click', gamePlay)
 
-    col1.addEventListener('click', gamePlay)
 
 
 console.log(board)
