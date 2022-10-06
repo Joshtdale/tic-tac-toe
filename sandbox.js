@@ -95,139 +95,49 @@ function renderPage(){
 };
 renderPage()
 
-function gamePlay(e) {
-    // let target = e.target;
-    // let id = target.id
-    let id = this.id
-    console.log(id)
-    id.style.backgroundImage =`url(${initState.image})`
-    id.style.backgroundPosition = 'center'
-    id.style.backgroundSize = `${initState.imageSize}`
-    id.style.backgroundRepeat = 'no-repeat'
-    board[0] = `${initState.turn}`
-    checkTurn()
-    // setTimeout(() => {
-    //     id.setAttribute('disabled', '')
-    //     }, "1000")
 
-}
+// for (let i = 0; i < winConditionals.length; i++) {
+    //     const line = winConditionals[i];
+    //     console.log(board[line[0]])
+    // }
 
-col1.addEventListener('click', (e) =>{
-    console.log('clicked')
-    // col1.innerText = `${initState.turn}`
-    gamePlay()
-})
-
-col2.addEventListener('click', () =>{
-    console.log('clicked')
-    // col2.innerText = `${initState.turn}`
-    col2.style.backgroundImage =`url(${initState.image})`
-    col2.style.backgroundPosition = 'center'
-    col2.style.backgroundSize = `${initState.imageSize}`
-    col2.style.backgroundRepeat = 'no-repeat'
-    board[1] = `${initState.turn}`
+    function gamePlay() {
+        // let target = e.target;
+        let stuff = this.id
+        console.log(stuff)
+        // let id = this.id
+        // console.log(id)
+        let col = document.getElementById(`${stuff}`)
+    col.style.backgroundImage =`url(${initState.image})`
+    col.style.backgroundPosition = 'center'
+    col.style.backgroundSize = `${initState.imageSize}`
+    col.style.backgroundRepeat = 'no-repeat'
+        board[0] = `${initState.turn}`
         checkTurn()
         setTimeout(() => {
-            col2.setAttribute('disabled', '')
-        }, "1000")
-})
+            document.getElementById(`${stuff}`).setAttribute('disabled', '')
+            }, "1000")
+    }
+    
+    col1.addEventListener('click', gamePlay)
+    
+    col2.addEventListener('click', gamePlay)
 
-col3.addEventListener('click', () =>{
-    console.log('clicked')
-    // col3.innerText = `${initState.turn}`
-    col3.style.backgroundImage =`url(${initState.image})`
-    col3.style.backgroundPosition = 'center'
-    col3.style.backgroundSize = `${initState.imageSize}`
-    col3.style.backgroundRepeat = 'no-repeat'
-    board[2] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col3.setAttribute('disabled', '')
-        }, "1000")
-})
+    col3.addEventListener('click', gamePlay)
 
-col4.addEventListener('click', () =>{
-    console.log('clicked')
-    // col4.innerText = `${initState.turn}`
-    col4.style.backgroundImage =`url(${initState.image})`
-    col4.style.backgroundPosition = 'center'
-    col4.style.backgroundSize = `${initState.imageSize}`
-    col4.style.backgroundRepeat = 'no-repeat'
-    board[3] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col4.setAttribute('disabled', '')
-        }, "1000")
-})
+    col4.addEventListener('click', gamePlay)
 
-col5.addEventListener('click', () =>{
-    console.log('clicked')
-    // col5.innerText = `${initState.turn}`
-    col5.style.backgroundImage =`url(${initState.image})`
-    col5.style.backgroundPosition = 'center'
-    col5.style.backgroundSize = `${initState.imageSize}`
-    col5.style.backgroundRepeat = 'no-repeat'
-    board[4] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col5.setAttribute('disabled', '')
-        }, "1000")
-})
+    col5.addEventListener('click', gamePlay)
 
-col6.addEventListener('click', () =>{
-    console.log('clicked')
-    // col6.innerText = `${initState.turn}`
-    col6.style.backgroundImage =`url(${initState.image})`
-    col6.style.backgroundPosition = 'center'
-    col6.style.backgroundSize = `${initState.imageSize}`
-    col6.style.backgroundRepeat = 'no-repeat'
-    board[5] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col6.setAttribute('disabled', '')
-        }, "1000")
-})
+    col6.addEventListener('click', gamePlay)
 
-col7.addEventListener('click', () =>{
-    console.log('clicked')
-    // col7.innerText = `${initState.turn}`
-    col7.style.backgroundImage =`url(${initState.image})`
-    col7.style.backgroundPosition = 'center'
-    col7.style.backgroundSize = `${initState.imageSize}`
-    col7.style.backgroundRepeat = 'no-repeat'
-    board[6] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col7.setAttribute('disabled', '')
-        }, "1000")
-})
+    col7.addEventListener('click', gamePlay)
 
-col8.addEventListener('click', () =>{
-    console.log('clicked')
-    // col8.innerText = `${initState.turn}`
-    col8.style.backgroundImage =`url(${initState.image})`
-    col8.style.backgroundPosition = 'center'
-    col8.style.backgroundSize = `${initState.imageSize}`
-    col8.style.backgroundRepeat = 'no-repeat'
-    board[7] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col8.setAttribute('disabled', '')
-        }, "1000")
-})
+    col8.addEventListener('click', gamePlay)
 
-col9.addEventListener('click', () =>{
-    console.log('clicked')
-    // col9.innerText = `${initState.turn}`
-    col9.style.backgroundImage =`url(${initState.image})`
-    col9.style.backgroundPosition = 'center'
-    col9.style.backgroundSize = `${initState.imageSize}`
-    col9.style.backgroundRepeat = 'no-repeat'
-    board[8] = `${initState.turn}`
-        checkTurn()
-        setTimeout(() => {
-            col9.setAttribute('disabled', '')
-        }, "1000")
-})
+    col9.addEventListener('click', gamePlay)
+
+    col1.addEventListener('click', gamePlay)
+
 
 console.log(board)
