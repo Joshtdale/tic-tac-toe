@@ -32,9 +32,10 @@ function xTurn() {
     initState.image = './images/skull.png'
     initState.imageSize = '50px'
     initState.turnCount++
-    if (initState.turnCount > 5){
-        console.log('possible winner')
-    }
+    // if (initState.turnCount > 5){
+    //     console.log('possible winner')
+    //     checkWinner()
+    // }
 };
 
 function oTurn() {
@@ -43,9 +44,10 @@ function oTurn() {
     initState.image = './images/crossbones.png'
     initState.imageSize = '100px'
     initState.turnCount++
-    if (initState.turnCount > 5){
-        console.log('possible winner')
-    }
+    // if (initState.turnCount > 5){
+    //     console.log('possible winner')
+    //     // checkWinner()
+    // }
 
 }
 
@@ -102,15 +104,18 @@ renderPage()
     // }
 
     function checkWinner (){
-        let gameWinner = winConditionals.some((tile) => {return
-        (
+        let gameWinner = winConditionals.some((tile) => {
+            return (
             board[tile[0]]
             && board[tile[0]] == board[tile[1]]
             && board[tile[1]] == board[tile[2]]
-        )}
-        )};
+        )
+    })
+    console.log(board)
+    console.log(gameWinner)
+};
     
-checkWinner()
+// checkWinner()
 
     function gamePlay() {
         let stuff = this.id
@@ -120,11 +125,13 @@ checkWinner()
     col.style.backgroundPosition = 'center'
     col.style.backgroundSize = `${initState.imageSize}`
     col.style.backgroundRepeat = 'no-repeat'
-        board[0] = `${initState.turn}`
+        board[] = `${initState.turn}`
+        checkWinner()
         checkTurn()
         setTimeout(() => {
             document.getElementById(`${stuff}`).setAttribute('disabled', '')
-            }, "1000")
+        }, "1000")
+            
     }
     
     col1.addEventListener('click', gamePlay)
