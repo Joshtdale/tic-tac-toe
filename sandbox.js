@@ -119,19 +119,16 @@ renderPage()
             && board[tile[1]] == board[tile[2]]
         )
     })
-    // console.log(board)
     if (gameWinner){
         setTimeout(() =>{
             alert(`${initState.turn} wins`)
             reset()
-            // renderPage()
         }, '300') 
         
     } else if (!gameWinner && initState.turnCount === 9){
         setTimeout(() =>{
             alert('You fools tied')
             reset()
-            // renderPage()
         }, '300') 
     }
 };
@@ -187,6 +184,3 @@ function reset() {
 
     col9.addEventListener('click', gamePlay)
 
-
-
-// console.log(board)
