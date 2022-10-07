@@ -19,7 +19,7 @@ let winConditionals = [
     [3, 4, 5],
     [6, 7, 8],
     [0, 3, 6],
-    [1, 5, 7],
+    [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
@@ -133,6 +133,16 @@ function renderPage() {
 
     resetBtn.addEventListener('click', reset)
     
+    col1.removeAttribute('disabled')
+    col2.removeAttribute('disabled')
+    col3.removeAttribute('disabled')
+    col4.removeAttribute('disabled')
+    col5.removeAttribute('disabled')
+    col6.removeAttribute('disabled')
+    col7.removeAttribute('disabled')
+    col8.removeAttribute('disabled')
+    col9.removeAttribute('disabled')
+
     // if (col1 === 'disabled'){
     //     console.log('col1 disabled')
     // }
@@ -162,13 +172,13 @@ function checkWinner() {
             headText.innerText = `${initState.turn} Wins`
             alert(`${initState.turn} wins`)
             reset()
-        }, '300')
+        }, 300)
 
     } else if (!gameWinner && initState.turnCount === 9) {
         setTimeout(() => {
             alert('You fools tied')
             reset()
-        }, '300')
+        }, 300)
     }
 };
 
@@ -177,6 +187,7 @@ function reset() {
         mainDiv.removeChild(boardRow)
         mainDiv.removeChild(headText)
         mainDiv.removeChild(turnText)
+        mainDiv.removeChild(resetBtn)
     }
     initState.turn = 'X',
         initState.winner = '',
@@ -213,18 +224,10 @@ function gamePlay() {
     checkWinner()
     setTimeout(() => {
         document.getElementById(`${stuff}`).setAttribute('disabled', '')
-    }, "1000")
+    }, 250)
 
 }
 
-    col1.removeAttribute('disabled')
-    col2.removeAttribute('disabled')
-    col3.removeAttribute('disabled')
-    col4.removeAttribute('disabled')
-    col5.removeAttribute('disabled')
-    col6.removeAttribute('disabled')
-    col7.removeAttribute('disabled')
-    col8.removeAttribute('disabled')
-    col9.removeAttribute('disabled')
+
 
 

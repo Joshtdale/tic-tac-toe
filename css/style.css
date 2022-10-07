@@ -26,6 +26,7 @@
 }
 
 .btn {
+    --bs-btn-hover-border-color: black;
     background-color: white;
 }
 
