@@ -26,9 +26,14 @@
 }
 
 .btn {
+    --bs-btn-hover-border-color: black;
     background-color: white;
 }
 
 body {
     background-color: black;
+}
+
+#resetBtn {
+    margin: 5px;
 }
