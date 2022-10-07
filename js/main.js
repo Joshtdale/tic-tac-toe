@@ -154,13 +154,13 @@ function checkWinner() {
         headText.innerText = `${initState.turn} Wins`
         turnText.innerHTML = '&nbsp;'
         setTimeout(() => {
-            // alert(`${initState.turn} wins`)
             let timerInterval
             Swal.fire({
                 title: `${initState.turn} wins`,
                 html: 'New game starting in <b></b> milliseconds.',
                 timer: 3000,
                 timerProgressBar: true,
+                confirmButtonColor: '#000000',
                 didOpen: () => {
                     Swal.showLoading()
                     const b = Swal.getHtmlContainer().querySelector('b')
@@ -172,7 +172,6 @@ function checkWinner() {
                     clearInterval(timerInterval)
                 }
             }).then((result) => {
-                /* Read more about handling dismissals below */
                 if (result.dismiss === Swal.DismissReason.timer) {
                     console.log('I was closed by the timer')
                 }
@@ -186,7 +185,8 @@ function checkWinner() {
                 icon: 'error',
                 title: 'Oops...',
                 text: 'You fools tied!',
-                footer: '<a href="">How do I fix my foolish ways?</a>'
+                footer: '<a href="">How do I fix my foolish ways?</a>',
+                confirmButtonColor: '#000000',
             })
 
             reset()
@@ -229,9 +229,9 @@ function gamePlay() {
     turnText.innerText = `${initState.turn}`
     checkTurn()
     checkWinner()
-    setTimeout(() => {
+    // setTimeout(() => {
         document.getElementById(`${stuff}`).setAttribute('disabled', '')
-    }, 250)
+    // }, 250)
 
 }
 
