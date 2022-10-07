@@ -153,6 +153,7 @@ function checkWinner() {
     })
     if (gameWinner) {
         setTimeout(() => {
+            headText.innerText = `${initState.turn} Wins`
             alert(`${initState.turn} wins`)
             reset()
         }, '300')
