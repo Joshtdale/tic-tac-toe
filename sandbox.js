@@ -1,5 +1,5 @@
 let initState = {
-    turn: 'x',
+    turn: 'X',
     winner: '',
     turnCount: 0,
     image: './images/crossbones.png',
@@ -30,7 +30,7 @@ function xTurn() {
     //  = initState.x
     initState.image = './images/crossbones.png'
     initState.imageSize = '100px'
-    initState.turn = 'o';
+    initState.turn = 'O';
     initState.turnCount++
     // if (initState.turnCount > 5){
     //     console.log('possible winner')
@@ -43,7 +43,7 @@ function oTurn() {
 
     initState.image = './images/skull.png'
     initState.imageSize = '60px'
-    initState.turn = 'x'
+    initState.turn = 'X'
     initState.turnCount++
     // if (initState.turnCount > 5){
     //     console.log('possible winner')
@@ -55,20 +55,18 @@ function oTurn() {
 
 
 function checkTurn() {
-    if (initState.turn === 'x') {
-        console.log('player x turn')
+    if (initState.turn === 'X') {
+        console.log('player X turn')
         xTurn()
 
-    } else if (initState.turn === 'o') {
-        console.log('player o turn')
+    } else if (initState.turn === 'O') {
+        console.log('player O turn')
         oTurn()
     };
 };
 checkTurn()
 
 
-// const mainDiv = document.getElementById('mainDiv')
-// mainDiv.setAttribute('class', 'container text-center')
 
 function createLayout(parentEl, tag, text, className, idName, number) {
     let element = document.createElement(tag)
@@ -85,12 +83,18 @@ function createLayout(parentEl, tag, text, className, idName, number) {
     parentEl.appendChild(element)
 };
 
-const body = document.querySelector('body')
+const mainDiv = document.querySelector('div')
+mainDiv.setAttribute('class', 'container text-center')
+// const body = document.querySelector('body')
 
 function renderPage() {
-    createLayout(body, 'div', '', 'container text-center', 'mainDiv')
-
-    createLayout(mainDiv, 'div', '', '', 'boardContainer')
+    // createLayout(body, 'div', '', 'container text-center', 'mainDiv')
+    
+    createLayout(mainDiv, 'h1','DEADLY TIC TAC TOE', 'text-secondary', 'headText')
+    createLayout(mainDiv, 'h3','X', 'text-secondary', 'turnText')
+    createLayout(mainDiv, 'div','','row justify-content-center','boardRow')
+    // console.log(initState.turn)
+    createLayout(boardRow, 'div', '', 'col-sm-12 col-md-8 col-xl-5', 'boardContainer')
 
     createLayout(boardContainer, 'div', '', 'row', 'topRow')
     createLayout(topRow, 'button', '', 'col btn', 'col1', '0')
@@ -105,37 +109,40 @@ function renderPage() {
     createLayout(bottomRow, 'button', '', 'col btn', 'col8', '7')
     createLayout(bottomRow, 'button', '', 'col btn', 'col9', '8')
 
-    boardContainer.style.zIndex = '-1'
-
+    
+    // boardContainer.style.zIndex = '-1'
+    
     col1.addEventListener('click', gamePlay)
-
+    
     col2.addEventListener('click', gamePlay)
-
+    
     col3.addEventListener('click', gamePlay)
-
+    
     col4.addEventListener('click', gamePlay)
-
+    
     col5.addEventListener('click', gamePlay)
-
+    
     col6.addEventListener('click', gamePlay)
-
+    
     col7.addEventListener('click', gamePlay)
-
+    
     col8.addEventListener('click', gamePlay)
-
+    
     col9.addEventListener('click', gamePlay)
-
+    
     // for (let i = 0; i < 10; i++) {
-    //     // console.log(i)
-    //     let col = `col${i}`
-    //     col.addEventListener('click', gamePlay)
+        //     // console.log(i)
+        //     let col = `col${i}`
+        //     col.addEventListener('click', gamePlay)
+        
+        // }
+    };
+    renderPage()
 
-    // }
-};
-renderPage()
-
-
-
+    
+    
+    
+    
 function checkWinner() {
     let gameWinner = winConditionals.some((tile) => {
         return (
@@ -159,10 +166,12 @@ function checkWinner() {
 };
 
 function reset() {
-    if (boardContainer) {
-        mainDiv.removeChild(boardContainer)
+    if (boardRow) {
+        mainDiv.removeChild(boardRow)
+        mainDiv.removeChild(headText)
+        mainDiv.removeChild(turnText)
     }
-    initState.turn = 'x',
+    initState.turn = 'X',
         initState.winner = '',
         initState.turnCount = 0,
         initState.image = './images/crossbones.png',
@@ -174,9 +183,33 @@ function reset() {
         '', '', '',
         '', '', '',
     ];
-    console.log(board)
+    // console.log(board)
     renderPage()
     checkTurn()
+    
+    // gamePlay()
+}
+
+function gamePlay() {
+    let stuff = this.id
+    let number = this.getAttribute('data-number')
+    // console.log(stuff)
+    // console.log(number)
+    let col = document.getElementById(`${stuff}`)
+    col.style.backgroundImage = `url(${initState.image})`
+    col.style.backgroundPosition = 'center'
+    col.style.backgroundSize = `${initState.imageSize}`
+    col.style.backgroundRepeat = 'no-repeat'
+    board[`${number}`] = `${initState.turn}`
+    turnText.innerText = `${initState.turn}`
+    checkTurn()
+    checkWinner()
+    setTimeout(() => {
+        document.getElementById(`${stuff}`).setAttribute('disabled', '')
+    }, "1000")
+
+}
+
     col1.removeAttribute('disabled')
     col2.removeAttribute('disabled')
     col3.removeAttribute('disabled')
@@ -186,26 +219,5 @@ function reset() {
     col7.removeAttribute('disabled')
     col8.removeAttribute('disabled')
     col9.removeAttribute('disabled')
-    // gamePlay()
-}
-
-function gamePlay() {
-    let stuff = this.id
-    let number = this.getAttribute('data-number')
-    console.log(stuff)
-    console.log(number)
-    let col = document.getElementById(`${stuff}`)
-    col.style.backgroundImage = `url(${initState.image})`
-    col.style.backgroundPosition = 'center'
-    col.style.backgroundSize = `${initState.imageSize}`
-    col.style.backgroundRepeat = 'no-repeat'
-    board[`${number}`] = `${initState.turn}`
-    checkTurn()
-    checkWinner()
-    setTimeout(() => {
-        document.getElementById(`${stuff}`).setAttribute('disabled', '')
-    }, "1000")
-
-}
 
 
