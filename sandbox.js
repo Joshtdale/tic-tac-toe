@@ -93,6 +93,7 @@ function renderPage() {
     createLayout(mainDiv, 'h1','DEADLY TIC TAC TOE', 'text-secondary', 'headText')
     createLayout(mainDiv, 'h3','X', 'text-secondary', 'turnText')
     createLayout(mainDiv, 'div','','row justify-content-center','boardRow')
+    createLayout(mainDiv, 'button', 'Reset Game', 'btn opacity-75', 'resetBtn')
     // console.log(initState.turn)
     createLayout(boardRow, 'div', '', 'col-sm-12 col-md-8 col-xl-5', 'boardContainer')
 
@@ -129,7 +130,12 @@ function renderPage() {
     col8.addEventListener('click', gamePlay)
     
     col9.addEventListener('click', gamePlay)
+
+    resetBtn.addEventListener('click', reset)
     
+    // if (col1 === 'disabled'){
+    //     console.log('col1 disabled')
+    // }
     // for (let i = 0; i < 10; i++) {
         //     // console.log(i)
         //     let col = `col${i}`
