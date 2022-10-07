@@ -30,6 +30,7 @@ function xTurn() {
 
     initState.image = './images/crossbones.png'
     initState.imageSize = '100px'
+
     initState.turn = 'O';
     initState.turnCount++
 
@@ -40,6 +41,7 @@ function oTurn() {
 
     initState.image = './images/skull.png'
     initState.imageSize = '60px'
+
     initState.turn = 'X'
     initState.turnCount++
 
@@ -149,15 +151,44 @@ function checkWinner() {
         )
     })
     if (gameWinner) {
+        headText.innerText = `${initState.turn} Wins`
+        turnText.innerHTML = '&nbsp;'
         setTimeout(() => {
-            headText.innerText = `${initState.turn} Wins`
-            alert(`${initState.turn} wins`)
+            // alert(`${initState.turn} wins`)
+            let timerInterval
+            Swal.fire({
+                title: `${initState.turn} wins`,
+                html: 'New game starting in <b></b> milliseconds.',
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 1000)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
             reset()
-        }, 300)
+        }, 500)
 
     } else if (!gameWinner && initState.turnCount === 9) {
         setTimeout(() => {
-            alert('You fools tied')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You fools tied!',
+                footer: '<a href="">How do I fix my foolish ways?</a>'
+            })
+
             reset()
         }, 300)
     }
