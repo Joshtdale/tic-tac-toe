@@ -84,7 +84,6 @@ mainDiv.setAttribute('class', 'container text-center')
 
 function renderPage() {
 
-
     createLayout(mainDiv, 'h1', 'DEADLY TIC TAC TOE', 'text-secondary', 'headText')
     createLayout(mainDiv, 'h3', 'X', 'text-secondary', 'turnText')
     createLayout(mainDiv, 'div', '', 'row justify-content-center', 'boardRow')
@@ -179,7 +178,7 @@ function checkWinner() {
             reset()
         }, 500)
 
-    } else if (!gameWinner && initState.turnCount === 9) {
+    } else if (!gameWinner && initState.turnCount === 10) {
         setTimeout(() => {
             Swal.fire({
                 icon: 'error',
@@ -230,7 +229,7 @@ function gamePlay() {
     checkTurn()
     checkWinner()
     // setTimeout(() => {
-        document.getElementById(`${stuff}`).setAttribute('disabled', '')
+    document.getElementById(`${stuff}`).setAttribute('disabled', '')
     // }, 250)
 
 }
