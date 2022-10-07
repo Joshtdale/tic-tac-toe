@@ -170,11 +170,12 @@ function checkWinner() {
                 willClose: () => {
                     clearInterval(timerInterval)
                 }
-            }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('I was closed by the timer')
-                }
             })
+            // .then((result) => {
+            //     if (result.dismiss === Swal.DismissReason.timer) {
+            //         console.log('I was closed by the timer')
+            //     }
+            // })
             reset()
         }, 500)
 
