@@ -103,6 +103,10 @@ function renderPage() {
     createLayout(bottomRow, 'button', '', 'col btn', 'col8', '7')
     createLayout(bottomRow, 'button', '', 'col btn', 'col9', '8')
 
+    // for (let i = 1; i <= 9; i++) {
+    //     col(i).addEventListener('click', gamePlay)
+    // }
+
 
     col1.addEventListener('click', gamePlay)
 
@@ -124,15 +128,6 @@ function renderPage() {
 
     resetBtn.addEventListener('click', reset)
 
-    col1.removeAttribute('disabled')
-    col2.removeAttribute('disabled')
-    col3.removeAttribute('disabled')
-    col4.removeAttribute('disabled')
-    col5.removeAttribute('disabled')
-    col6.removeAttribute('disabled')
-    col7.removeAttribute('disabled')
-    col8.removeAttribute('disabled')
-    col9.removeAttribute('disabled')
 
 };
 renderPage()
