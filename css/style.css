@@ -10,14 +10,14 @@
     background-position: cover no-repeat;
 } */
 
-/* .btn:hover {
-    background-image: url(./images/skull.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 0.5sec;
-    background-size: 50px;
+.btn:hover {
+    /* background-image: url(./images/skull.jpg); */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    transition-duration: 0.4s;
+    /* background-size: 50px; */
 
-} */
+}
 
 #boardContainer {
     background-color: rgba(255, 255, 255, 0.7);
@@ -26,9 +26,18 @@
 }
 
 .btn {
+    --bs-btn-hover-border-color: black;
     background-color: white;
 }
 
 body {
     background-color: black;
+}
+
+#resetBtn {
+    margin: 5px;
+}
+
+.container {
+    margin-top: 15vh;
 }
